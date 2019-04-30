@@ -1,0 +1,12 @@
+# python:alpine is 3.{latest}
+FROM python:alpine 
+
+RUN pip install flask
+
+RUN pip install urllib3
+
+COPY app.py /src/app.py
+
+EXPOSE 5000
+
+ENTRYPOINT ["python", "/src/app.py"]
