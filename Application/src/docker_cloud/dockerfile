@@ -7,6 +7,6 @@ RUN pip install urllib3
 
 COPY app.py /src/app.py
 
-EXPOSE 5000
+EXPOSE 5003
 
 ENTRYPOINT ["python", "/src/app.py"]

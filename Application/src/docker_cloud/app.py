@@ -7,4 +7,4 @@ def data_aggregate(num):
     return ("")
 
 if __name__ == "__main__":
-    app.run(host= '172.16.0.4')
+    app.run(host= '0.0.0.0', port='5003')

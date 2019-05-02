@@ -18,7 +18,7 @@ def data_aggregate(num):
     r = http.request('POST', 'http://172.16.0.4:5001/containers/gateway/update', body=encoded_data, headers={'Content-Type': 'application/json'})
 
     if predict(num):
-	r = http.request('GET', 'http://172.16.0.4:5003/' + str(predict(num)))
+        r = http.request('GET', 'http://0.0.0.0:5003/' + str(predict(num)))
     #print (r.status)
     #print (r.data)
 
@@ -32,4 +32,4 @@ def predict(number):
     return (number)
 
 if __name__ == "__main__":
-    app.run(host='172.16.0.4')
+    app.run(host='0.0.0.0', port='5002')
