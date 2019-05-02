@@ -6,7 +6,7 @@ average = 23 # Room Temperature
 
 def prediction(num):
     global average
-    average = (0.8 * average + num) // 2
+    average = (0.8 * average + num) / 2
     if num > 1.05 * average or num < 0.95 * average:
         return (num)
     return (False)

@@ -3,6 +3,7 @@ import json
 
 http = urllib3.PoolManager()
 count = 0
+average = None
 
 from flask import Flask
 app = Flask(__name__)
@@ -29,7 +30,15 @@ def prediction_resource(count):
 
 # False if outside of threshold range, actual value otherwise
 def predict(number):
-    return (number)
+    global average
+    if average:
+        average = (0.8 * average + num) / 2
+    else:
+        average = number
+
+    if num > 1.05 * average or num < 0.95 * average:
+        return (number)
+    return (False)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='5002')
